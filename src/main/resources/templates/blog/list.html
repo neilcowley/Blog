@@ -13,9 +13,8 @@
 </head>
 <body>
 	<div class="container">
-		<div th:if="${not #lists.isEmpty(blogList)}">
-			<h2>Blog List</h2>
-
+		<h1>Blog Stuff</h1>
+		<div th:if="${not #lists.isEmpty(allBlogEntries)}">
 			<table class="table table-striped">
 				<tr>
 					<th>Id</th>
@@ -27,15 +26,15 @@
 					<th></th>
 					<th></th>
 				</tr>
-				<tr th:each="blog : ${blogList}">
-					<td th:text="${blog.id}"></td>
-					<td th:text="${blog.title}"></td>
-					<td th:text="${blog.category}"></td>
-					<td th:text="${blog.pubDate}"></td>
-					<td th:text="${blog.description}"></td>
-					<td><a th:href="${'/blog/show/' + blog.id }">View</a></td>
-					<td><a th:href="${'/blog/edit/' + blog.id }">Edit</a></td>
-					<td><a th:href="${'/blog/delete/' + blog.id }">Delete</a></td>
+				<tr th:each="blogEntry : ${allBlogEntries}">
+					<td th:text="${blogEntry.id}"></td>
+					<td th:text="${blogEntry.title}"></td>
+					<td th:text="${blogEntry.category}"></td>
+					<td th:text="${blogEntry.pubDate}"></td>
+					<td th:text="${blogEntry.description}"></td>
+					<td><a th:href="${'/blog/show/' + blogEntry.id }">View</a></td>
+					<td><a th:href="${'/blog/edit/' + blogEntry.id }">Edit</a></td>
+					<td><a th:href="${'/blog/delete/' + blogEntry.id }">Delete</a></td>
 				</tr>
 			</table>
 		</div>

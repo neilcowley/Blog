@@ -2,17 +2,21 @@ package com.projects.blog.services;
 
 import java.util.List;
 
-import com.projects.blog.models.Blog;
+import org.springframework.stereotype.Service;
 
+import com.projects.blog.models.BlogEntry;
+
+@Service
 public interface BlogService {
 	
-	public Blog getBlog(int id);
+	public BlogEntry findBlogById(int id);
 	
-	public Blog setBlog(int id);
+	public BlogEntry setBlog(int id);
 	
-	public List<Blog> getBlogList(); 
+	public List<BlogEntry> findAllBlogEntries(); 
 	
 	public void deleteBlog(int id);
 	
-	public void buildList();
+	public void saveBlog(BlogEntry blogEntry);
+
 }

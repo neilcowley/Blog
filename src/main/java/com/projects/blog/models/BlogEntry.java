@@ -1,23 +1,25 @@
 package com.projects.blog.models;
-
 import java.util.Date;
+import javax.persistence.*;
 
-// @Entity
-public class Blog {
+@Entity
+@Table(name="blog_entry") 
+public class BlogEntry {
 	
-    //@Id
-    //@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
 	private String title;
 	private String category;
+	@Column(name = "pub_date")
 	private Date pubDate; 
 	private String description; 
-    //@Version
-    // Integer version;
+    @Version
+    Integer version;
 	
-	public Blog() {}
+	public BlogEntry() {}
 
-	public Blog(Integer id, String title, String category, Date pubDate, String description) {
+	public BlogEntry(Integer id, String title, String category, Date pubDate, String description) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -65,7 +67,4 @@ public class Blog {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
-
 }
